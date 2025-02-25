@@ -20,14 +20,20 @@ export class Customer {
         return this.discount
     }
     private setDiscount(): void {
-        if (this.type === DiscountTypeEnum.REGULAR) {
-            this.discount = 0.05;
-        } else if (this.type === DiscountTypeEnum.PREMIUM) {
-            this.discount = 0.1;
-        } else if (this.type === DiscountTypeEnum.VIP) {
-            this.discount = 0.2;
-        } else {
-            this.discount = 0;
+        switch (this.type) {
+            case DiscountTypeEnum.REGULAR:
+                this.discount = 0.05;    
+                break;
+            case DiscountTypeEnum.PREMIUM:
+                this.discount = 0.1;
+                break;
+            case DiscountTypeEnum.VIP:
+                this.discount = 0.2;   
+                break
+            default:
+                this.discount = 0;
+                break;
         }
+        
     }
 }
